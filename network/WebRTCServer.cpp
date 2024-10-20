@@ -197,8 +197,10 @@ const char* html_template = " \n \
  \n \
 		connections[url].webrtcPeer.onconnectionstatechange = (ev) => { \n \
 	       console.log('WebRTC connection state (%%s) ' + connections[url].webrtcPeer.connectionState, url); \n \
+            /* \n \
             if( connections[url].webrtcPeer.connectionState == 'connected' ) \n \
               setInterval(getConnectionStats, 1000, url, connections[url].type == 'inbound' ? 'inbound-rtp' : 'outbound-rtp'); \n \
+            */ \n \
 	     } \n \
  \n \
           if( connections[url].type == 'inbound' ) \n \
@@ -280,13 +282,15 @@ const char* html_template = " \n \
     </script> \n \
   </head> \n \
  \n \
-  <body style='background-color:#333333; color:#FFFFFF;'> \n \
+  <body style='display:flex; align-items:center; justify-content:center;'> \n \
     <div> \n \
-      <video id='video-player' autoplay controls playsinline muted>Your browser does not support video</video> \n \
+      <video id='video-player' width='540' autoplay muted>Your browser does not support video</video> \n \
     </div> \n \
+    <!-- \n \
     <pre>%s</pre> \n \
     <pre id='stats-player'></pre> \n \
     <pre id='stats-sender'></pre> \n \
+    --> \n \
   </body> \n \
 </html> \n \
 ";
